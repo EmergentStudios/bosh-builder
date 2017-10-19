@@ -42,13 +42,13 @@
       fill: white;
     }
     .scarf1 {
-      fill: #3995FD;
+      fill: #FD4F38;
     }
     .scarf3 {
       fill: #06A725;
     }
     .scarf5 {
-      fill: #FD4F38;
+      fill: #3995FD;
     }
     .hat .ball {
       fill: black;
@@ -157,7 +157,7 @@
     </g>
     <g class="lr-sprite" lr:copy="base-scarf" lr:anchor="SCARF_0" lr:lookAt="SCARF_1"></g>
     <g class="lr-sprite lr-stretch" lr:anchor="SCARF_1" lr:lookAt="SCARF_2">
-      <rect class="scarf5" x="25" y="65" width="2" height="2"/>
+      <rect class="scarf1" x="25" y="65" width="2" height="2"/>
       <circle class="lr-anchor" cx="25" cy="66" r="0.5" />
       <rect class="lr-bbox" x="24" y="64" width="4" height="4" />
     </g>
@@ -169,7 +169,7 @@
     </g>
     <g class="lr-sprite" lr:copy="base-scarf" lr:anchor="SCARF_4" lr:lookAt="SCARF_5"></g>
     <g class="lr-sprite lr-stretch" lr:anchor="SCARF_5" lr:lookAt="SCARF_6">
-      <rect class="scarf1" x="33" y="65" width="2" height="2"/>
+      <rect class="scarf5" x="33" y="65" width="2" height="2"/>
       <circle class="lr-anchor" cx="33" cy="66" r="0.5" />
       <rect class="lr-bbox" x="32" y="64" width="4" height="4" />
     </g>
