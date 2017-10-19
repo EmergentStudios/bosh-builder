@@ -1,12 +1,14 @@
 /*
 padding should be 1px
 classes:
+  - lr-entity
   - lr-sprite
   - lr-stretch
   - lr-null
   - lr-anchor (el: circle, attributes: cx, cy)
   - lr-bbox (el: rect, attributes: x, y, width, height)
 attributes (for <g/>):
+  - lr:entity: string
   - lr:copy: svg ID
   - lr:anchor: point ID
   - lr:lookAt: point ID
@@ -93,6 +95,14 @@ function getCoords (params, sprite) {
   return sprite.coords[key]
 }
 
-let out = [...dom.querySelectorAll('.lr-sprite')].map(sprite => getSpriteProps(sprite, dom))
+// let out = [...dom.querySelectorAll('.lr-sprite')].map(sprite => getSpriteProps(sprite, dom))
 
-console.log(out.map(s => getCoords({rotation: 0, blinking: 0, broken: 0, crashed: 0}, s)))
+let entities = {}
+for (let entity of dom.querySelectorAll('.lr-entity')) {
+  let entityName = entity.getAttributeNS(LR, 'entity')
+  let sprites = [...entity.querySelectorAll('.lr-sprite')].map(sprite => getSpriteProps(sprite, dom))
+  entities[entityName] = sprites
+}
+console.log(entities)
+
+// console.log(out.map(s => getCoords({rotation: 0, blinking: 0, broken: 0, crashed: 0}, s)))
