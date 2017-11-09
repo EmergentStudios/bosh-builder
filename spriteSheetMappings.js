@@ -4,6 +4,26 @@ const PARAMS = ['rotation', 'blinking', 'broken', 'crashed']
 const TRANSFORM_TYPES = ['opacity', 'translate', 'scale', 'rotate']
 const LR = 'https://www.linerider.com'
 
+const Transform = {
+  translate: (a, args) => translate(a, a, args),
+  scale: (a, args) => scale(a, a, args),
+  rotate: (a, [deg, x, y]) => {
+    translate(a, a, [x, y])
+    rotate(a, a, deg / 180 * Math.PI)
+    translate(a, a, [-x, -y])
+  }
+}
+const FromTransform = {
+  translate: args => fromTranslation([], args),
+  scale: args => fromScaling([], args),
+  rotate: ([deg, x, y]) => {
+    let a = fromTranslation([], [x, y])
+    rotate(a, a, deg / 180 * Math.PI)
+    translate(a, a, [-x, -y])
+    return a
+  }
+}
+
 /* polyfills for ie11 dom methods */
 const containsClass = (node, className) => {
   if (node.classList) {
@@ -41,7 +61,7 @@ function getSpriteProps (sprite, doc) {
     ...props,
     stretch: containsClass(sprite, 'lr-stretch'),
     coords: createCoords(sprite),
-    transforms: [...transformNodes].map(createTransform).reverse(),
+    transforms: [...transformNodes].map(createTransform),
     opacity: animateNode && createTransform(animateNode)
   }
 }
@@ -99,25 +119,6 @@ function createCoords (sprite) {
   }
 }
 
-const Transform = {
-  translate: (a, args) => translate(a, a, args),
-  scale: (a, args) => scale(a, a, args),
-  rotate: (a, [deg, x, y]) => {
-    translate(a, a, [-x, -y])
-    rotate(a, a, deg / 180 * Math.PI)
-    translate(a, a, [x, y])
-  }
-}
-const FromTransform = {
-  translate: args => fromTranslation([], args),
-  scale: args => fromScaling([], args),
-  rotate: ([deg, x, y]) => {
-    let a = fromTranslation([], [-x, -y])
-    rotate(a, a, deg / 180 * Math.PI)
-    translate(a, a, [x, y])
-    return a
-  }
-}
 function getInterpolatedArgs ({param, keyframes}, params) {
   let time = params[param]
   switch (time) {
@@ -133,6 +134,8 @@ function getInterpolatedArgs ({param, keyframes}, params) {
   let t = (time - prev.time) / (next.time - prev.time)
   return prev.args.map((a, i) => (1 - t) * a + t * next.args[i])
 }
+
+// returns texture coordinates and transformations for rendering a sprite
 function getMappingProps (sprite, params) {
   let coords = sprite.coords
   let opacity = sprite.opacity && getInterpolatedArgs(sprite.opacity, params)[0]
@@ -156,6 +159,7 @@ function getMappingProps (sprite, params) {
   return {coords, opacity, transform: transformMatrix}
 }
 
+// returns a JSON of mappings and information for transformations
 function getSpriteSheetMappings (doc) {
   let entityMappings = {}
 
@@ -173,8 +177,6 @@ function getSpriteSheetMappings (doc) {
 
 let mappings = getSpriteSheetMappings(document)
 console.log(mappings)
-
-// require('./spriteSheetMappings.spec.js')
 
 
 
