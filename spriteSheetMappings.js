@@ -47,9 +47,10 @@ function validatePoint (point, nullable) {
 function getSpriteProps (sprite, doc) {
   let anchor = getLRAttribute(sprite, 'anchor')
   let lookAt = getLRAttribute(sprite, 'lookAt')
+  let cam = getLRAttribute(sprite, 'cam')
   validatePoint(anchor)
   validatePoint(lookAt, true)
-  let props = {anchor, lookAt}
+  let props = {anchor, lookAt, cam}
   let copy = getLRAttribute(sprite, 'copy')
   if (copy) {
     let baseProps = getSpriteProps(doc.getElementById(copy), doc)
@@ -159,7 +160,7 @@ function getMappingProps (sprite, params) {
   return {coords, opacity, transform: transformMatrix}
 }
 
-// returns a JSON of mappings and information for transformations
+// returns a JSON of mappings and transformations
 function getSpriteSheetMappings (doc) {
   let entityMappings = {}
 
@@ -175,8 +176,42 @@ function getSpriteSheetMappings (doc) {
   return entityMappings
 }
 
+function getCameraMappings (mappings) {
+  let camViews = {}
+  for (let entity in mappings) {
+    let spriteMappings = mappings[entity]
+
+    for (let spriteMapping of spriteMappings) {
+      if (spriteMapping.cam) {
+        if (!(spriteMapping.cam in camViews)) {
+          camViews[spriteMapping.cam] = []
+        }
+
+        camViews[spriteMapping.cam].push(spriteMapping)
+      }
+    }
+  }
+  return camViews
+}
+
+class SpriteSheet {
+  constructor (id, doc, image) {
+    this.id = id // whatever to use to identify this spritesheet, like a url
+    this.image = image
+    this.mappings = getSpriteSheetMappings(doc)
+    // don't transform or stretch these
+    this.cameraMappings = getCameraMappings(this.mappings)
+    this.width = image.width
+    this.height = image.height
+  }
+  toJSON () {
+    return this.id
+  }
+}
+
 let mappings = getSpriteSheetMappings(document)
 console.log(mappings)
+console.log(getCameraMappings(mappings))
 
 
 

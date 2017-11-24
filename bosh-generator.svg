@@ -228,7 +228,7 @@
         </use>
       </defs>
     </g>
-    <g class="lr-sprite" lr:anchor="PEG" lr:lookAt="STRING" lr:bbox="0.15 0.15 0.15 0.15">
+    <g class="lr-sprite" lr:anchor="PEG" lr:lookAt="STRING" lr:bbox="0.15 0.15 0.15 0.15" lr:cam="sled">
       <use class="lr-anchor" x="2.6" y="25.5" xlink:href="#sled-base" />
       <defs>
         <use id="sled-base" xlink:href="#sled">
@@ -240,10 +240,6 @@
           />
         </use>
       </defs>
-    </g>
-
-    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="LFOOT" id="base-leg" lr:bbox="0.15 0.15 0.15 0.15">
-      <use class="lr-anchor" x="53.3" y="13.15" xlink:href="#leg" />
     </g>
 
     <g class="lr-sprite lr-stretch" lr:anchor="LHAND" lr:lookAt="STRING" id="base-string" lr:bbox="0.15 0 0.15 -0.001">
@@ -266,11 +262,15 @@
       </defs>
     </g>
 
-    <g class="lr-sprite" lr:anchor="SHOULDER" lr:lookAt="LHAND" id="base-arm" lr:bbox="0.15 0.15 0.15 0.15">
+    <g class="lr-sprite" lr:anchor="SHOULDER" lr:lookAt="LHAND" id="base-arm" lr:bbox="0.15 0.15 0.15 0.15" lr:cam="rider">
       <use class="lr-anchor" x="54.75" y="18.75" xlink:href="#arm" />
     </g>
 
-    <g class="lr-sprite" lr:copy="base-leg" lr:anchor="BUTT" lr:lookAt="RFOOT"></g>
+    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="LFOOT" id="base-leg" lr:bbox="0.15 0.15 0.15 0.15" lr:cam="rider">
+      <use class="lr-anchor" x="53.3" y="13.15" xlink:href="#leg" />
+    </g>
+
+    <g class="lr-sprite" lr:copy="base-leg" lr:anchor="BUTT" lr:lookAt="RFOOT" lr:cam="rider"></g>
 
     <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="SHOULDER" lr:bbox="0.15 0.15 0.15 0.15">
       <use class="lr-anchor" x="31.45" y="13.5" xlink:href="#head"/>
@@ -387,7 +387,7 @@
         </use>
       </defs>
     </g>
-    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="SHOULDER" lr:bbox="0.5 0.15 0.5 0">
+    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="SHOULDER" lr:bbox="0.5 0.15 0.5 0" lr:cam="rider">
       <use class="lr-anchor" x="38.25" y="5" xlink:href="#body" />
     </g>
 

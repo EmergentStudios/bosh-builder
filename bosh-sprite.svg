@@ -184,7 +184,7 @@
         </use>
       </defs>
     <rect class="lr-bbox" x="22" y="22" width="14" height="8"/></g>
-    <g class="lr-sprite" lr:anchor="PEG" lr:lookAt="STRING">
+    <g class="lr-sprite" lr:anchor="PEG" lr:lookAt="STRING" lr:cam="sled">
       <use class="lr-anchor" x="2.6" y="25.5" xlink:href="#sled-base"/>
       <defs>
         <use id="sled-base" xlink:href="#sled">
@@ -192,10 +192,6 @@
         </use>
       </defs>
     <rect class="lr-bbox" x="1" y="22" width="20" height="10"/></g>
-
-    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="LFOOT" id="base-leg">
-      <use class="lr-anchor" x="53.3" y="13.15" xlink:href="#leg"/>
-    <rect class="lr-bbox" x="51" y="10" width="11" height="5"/></g>
 
     <g class="lr-sprite lr-stretch" lr:anchor="LHAND" lr:lookAt="STRING" id="base-string">
       <use class="lr-anchor" x="43" y="19.5" xlink:href="#string"/>
@@ -207,11 +203,15 @@
       </defs>
     <rect class="lr-bbox" x="42" y="18" width="10" height="3"/></g>
 
-    <g class="lr-sprite" lr:anchor="SHOULDER" lr:lookAt="LHAND" id="base-arm">
+    <g class="lr-sprite" lr:anchor="SHOULDER" lr:lookAt="LHAND" id="base-arm" lr:cam="rider">
       <use class="lr-anchor" x="54.75" y="18.75" xlink:href="#arm"/>
     <rect class="lr-bbox" x="53" y="16" width="10" height="5"/></g>
 
-    <g class="lr-sprite" lr:copy="base-leg" lr:anchor="BUTT" lr:lookAt="RFOOT"/>
+    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="LFOOT" id="base-leg" lr:cam="rider">
+      <use class="lr-anchor" x="53.3" y="13.15" xlink:href="#leg"/>
+    <rect class="lr-bbox" x="51" y="10" width="11" height="5"/></g>
+
+    <g class="lr-sprite" lr:copy="base-leg" lr:anchor="BUTT" lr:lookAt="RFOOT" lr:cam="rider"/>
 
     <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="SHOULDER">
       <use class="lr-anchor" x="31.45" y="13.5" xlink:href="#head"/>
@@ -258,7 +258,7 @@
         </use>
       </defs>
     <rect class="lr-bbox" x="59" y="6" width="3" height="3"/></g>
-    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="SHOULDER">
+    <g class="lr-sprite" lr:anchor="BUTT" lr:lookAt="SHOULDER" lr:cam="rider">
       <use class="lr-anchor" x="38.25" y="5" xlink:href="#body"/>
     <rect class="lr-bbox" x="37" y="1" width="17" height="8"/></g>
 
