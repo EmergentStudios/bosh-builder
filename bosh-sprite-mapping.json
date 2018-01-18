@@ -46,7 +46,7 @@
       "anchor": "SHOULDER",
       "lookAt": "SCARF_0",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -66,7 +66,7 @@
       "anchor": "SCARF_0",
       "lookAt": "SCARF_1",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -86,7 +86,7 @@
       "anchor": "SCARF_1",
       "lookAt": "SCARF_2",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -106,7 +106,7 @@
       "anchor": "SCARF_2",
       "lookAt": "SCARF_3",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -126,7 +126,7 @@
       "anchor": "SCARF_3",
       "lookAt": "SCARF_4",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -146,7 +146,7 @@
       "anchor": "SCARF_4",
       "lookAt": "SCARF_5",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -166,7 +166,7 @@
       "anchor": "SCARF_5",
       "lookAt": "SCARF_6",
       "cam": null,
-      "stretch": true,
+      "stretch": false,
       "coords": {
         "anchor": {
           "x": 38,
@@ -644,14 +644,14 @@
       "stretch": false,
       "coords": {
         "anchor": {
-          "x": 38.45,
-          "y": 13.5
+          "x": 36.45,
+          "y": 23.5
         },
         "bbox": {
-          "x": 44,
-          "y": 10,
+          "x": 42,
+          "y": 22,
           "width": 6,
-          "height": 7
+          "height": 3
         }
       },
       "transforms": [
@@ -663,11 +663,11 @@
               "time": 0,
               "args": [
                 0,
-                0
+                -2.4
               ]
             },
             {
-              "time": 0.45,
+              "time": 0.5,
               "args": [
                 0,
                 -2.4
@@ -677,14 +677,21 @@
               "time": 0.55,
               "args": [
                 0,
-                2.4
+                -2.25
+              ]
+            },
+            {
+              "time": 0.95,
+              "args": [
+                0,
+                -2.25
               ]
             },
             {
               "time": 1,
               "args": [
                 0,
-                0
+                -2.4
               ]
             }
           ]
@@ -701,10 +708,10 @@
               ]
             },
             {
-              "time": 0.45,
+              "time": 0.5,
               "args": [
                 1,
-                0
+                1
               ]
             },
             {
@@ -712,6 +719,116 @@
               "args": [
                 1,
                 0
+              ]
+            },
+            {
+              "time": 0.95,
+              "args": [
+                1,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "args": [
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "opacity": null
+    },
+    {
+      "anchor": "BUTT",
+      "lookAt": "SHOULDER",
+      "cam": null,
+      "stretch": false,
+      "coords": {
+        "anchor": {
+          "x": 36.45,
+          "y": 23.5
+        },
+        "bbox": {
+          "x": 42,
+          "y": 22,
+          "width": 6,
+          "height": 3
+        }
+      },
+      "transforms": [
+        {
+          "param": "rotation",
+          "type": "translate",
+          "keyframes": [
+            {
+              "time": 0,
+              "args": [
+                0,
+                2.4
+              ]
+            },
+            {
+              "time": 0.05,
+              "args": [
+                0,
+                2.25
+              ]
+            },
+            {
+              "time": 0.45,
+              "args": [
+                0,
+                2.25
+              ]
+            },
+            {
+              "time": 0.5,
+              "args": [
+                0,
+                2.4
+              ]
+            },
+            {
+              "time": 1,
+              "args": [
+                0,
+                2.4
+              ]
+            }
+          ]
+        },
+        {
+          "param": "rotation",
+          "type": "scale",
+          "keyframes": [
+            {
+              "time": 0,
+              "args": [
+                1,
+                1
+              ]
+            },
+            {
+              "time": 0.05,
+              "args": [
+                1,
+                0
+              ]
+            },
+            {
+              "time": 0.45,
+              "args": [
+                1,
+                0
+              ]
+            },
+            {
+              "time": 0.5,
+              "args": [
+                1,
+                1
               ]
             },
             {
@@ -1176,6 +1293,95 @@
               "args": [
                 0.5,
                 1.3
+              ]
+            }
+          ]
+        }
+      ],
+      "opacity": null
+    },
+    {
+      "anchor": "BUTT",
+      "lookAt": "SHOULDER",
+      "cam": null,
+      "stretch": false,
+      "coords": {
+        "anchor": {
+          "x": 38.45,
+          "y": 13.5
+        },
+        "bbox": {
+          "x": 44,
+          "y": 10,
+          "width": 6,
+          "height": 7
+        }
+      },
+      "transforms": [
+        {
+          "param": "rotation",
+          "type": "translate",
+          "keyframes": [
+            {
+              "time": 0,
+              "args": [
+                0,
+                0
+              ]
+            },
+            {
+              "time": 0.45,
+              "args": [
+                0,
+                -2.4
+              ]
+            },
+            {
+              "time": 0.55,
+              "args": [
+                0,
+                2.4
+              ]
+            },
+            {
+              "time": 1,
+              "args": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "param": "rotation",
+          "type": "scale",
+          "keyframes": [
+            {
+              "time": 0,
+              "args": [
+                1,
+                1
+              ]
+            },
+            {
+              "time": 0.45,
+              "args": [
+                1,
+                0
+              ]
+            },
+            {
+              "time": 0.55,
+              "args": [
+                1,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "args": [
+                1,
+                1
               ]
             }
           ]
